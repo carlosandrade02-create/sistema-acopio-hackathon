@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prothymía — Coordinación de Centros de Acopio</title>
+  <meta name="description" content="Registro y coordinación de centros de acopio en tiempo real." />
+  <link rel="icon" href="assets/prothymia-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>
+    // Aplica el tema antes de pintar para evitar parpadeo + marca que hay JS
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('cda_theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <div id="toasts"></div>
+  <!-- Google Identity Services (para inicio de sesión con Google real; ver GOOGLE_CLIENT_ID en app.js) -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- Google reCAPTCHA v2 (para el captcha real; ver RECAPTCHA_SITE_KEY en app.js) -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+  <script type="module" src="js/circular-gallery.js"></script>
+</body>
+</html>
